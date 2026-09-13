@@ -1,0 +1,12 @@
+# Working outputs and schema snapshots may contain real tenant/site data.
+# Never commit them.
+out/
+*-baseline.json
+baseline.json
+*.snapshot.json
+schema-diff.json
+schema-diff.html
+
+# Keep the tenant-safe (contoso) example report out of source control too;
+# regenerate it from the synthetic demo when needed.
+example-report.html
