@@ -34,6 +34,16 @@ Plus lists and libraries that exist on only one side.
 
 You cannot diff raw `SchemaXml` — it is full of values that differ on every site (GUIDs, `ColName`, `SourceID`, version numbers), so a naive comparison flags everything as changed. This tool instead **normalises each column to a canonical model** and compares that. Columns are matched by **internal name**, and lookup targets are resolved from their GUID to the target **list title**, so a lookup to `Projects` matches across two sites even though the underlying list GUIDs are different.
 
+## Install
+
+From the PowerShell Gallery:
+
+```powershell
+Install-Module SPSchemaCompare -Scope CurrentUser
+```
+
+Then call the **`Compare-SPListSchema`** cmdlet (the examples below work as either the cmdlet or the standalone `Compare-SPListSchema.ps1` in this repo). The cmdlet returns the diff object, so you can branch on it: `if (-not (Compare-SPListSchema ... ).inSync) { ... }`.
+
 ## Requirements
 
 - PowerShell 7+
